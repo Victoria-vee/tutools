@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up — Tutools</title>
     <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="responsive-signup.css">
      <script
       src="https://kit.fontawesome.com/5be89bdbaf.js"
       crossorigin="anonymous"
@@ -25,11 +26,15 @@
                 <h2>Create your account</h2>
             
             
-                <form action="#" method="post" novalidate>
-                    <input class="form-input" type="text" name="name" placeholder="Full name" required />
-                    <input class="form-input" type="email" name="email" placeholder="Email address" required />
-                    <input class="form-input" type="password" name="password" placeholder="Password" required />
-                    <label for="show-password"><input type="checkbox" name="show-password" id="show-password"> Show password</label>
+                <form action="signup.php" method="post" novalidate>
+                    <label for="name">
+                    
+                        <input class="form-input" type="text" name="name" id="name" placeholder="Username" required />
+                </label>
+                    <label for="email"><input class="form-input" type="email" id="email" placeholder="Email address"  required /></label>
+                    <label for="password"><input class="form-input" type="password" id="password" name="password" placeholder="Password" required /></label>
+                    <label for="confirmpassword"><input class="form-input" type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm password" required /></label>
+                    <label for="show-password"><input type="checkbox" name="show-password" id="showpassword"> Show password</label>
                     <div class="button">
                         <button class="submit-btn" type="submit">Sign up</button>
                     </div>
@@ -39,9 +44,10 @@
                 <p class="terms">By signing up you agree to our terms.</p>
             </div>
             <div class="image">
-                <img src="/images/mobile-login-animate.svg" alt="Sign up illustration" />
+                <img src="/tutools/images/mobile-login-animate.svg" alt="Sign up illustration" />
             </div>
         </div>
     </section>
 </body>
+<script src="signup.js"></script>
 </html>

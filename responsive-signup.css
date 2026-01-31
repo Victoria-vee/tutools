@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap");
+
+:root {
+  --font-body:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-accent: "Space Grotesk", system-ui, sans-serif;
+
+  --fs-mobileh1: 2.2rem;
+  --fs-mobileh2: 1.6rem;
+  --fs-mobileh3: 1.4rem;
+  --fs-mobilebody: 0.8rem;
+  --fs-small: 0.875rem;
+  --bg: #f6f5f2;
+  --text: #1e1e24;
+  --card: #ffffff;
+  --border: #b5b5bd;
+  --button: #c58b8b;
+  --muted: #9a9abf;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 820px;
+    padding: 24px;
+    gap: 18px;
+  }
+
+  .form-container {
+    padding: 32px;
+    max-width: 520px;
+  }
+
+  .image img {
+    width: 320px;
+    height: auto;
+  }
+
+  .logo-circles {
+    width: 40px;
+    height: 40px;
+    left:30px
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small / mobile screens */
+@media (max-width: 720px) {
+  html, body {
+    font-size: var(--fs-mobilebody);
+  }
+
+  .signup {
+    padding: 18px 12px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    background-color: transparent;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .image {
+    display: none;
+  }
+
+  .logo-circles {
+    width: 36px;
+    height: 36px; 
+    position: relative;
+  left:28px
+}
+   
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .close {
+    top: 10px;
+    left: 10px;
+  }
+
+  form {
+    gap: 10px;
+  }
+
+  .form-input {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .button,
+  .actions {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  label[for="show-password"] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+}

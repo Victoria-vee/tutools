@@ -37,19 +37,16 @@ body {
     justify-content: center;
     min-height: 100vh;
     background-color: var(--text-muted);
-    padding: 40px 20px;
+    /* padding: 40px 20px; */
     position: relative;
 }
 
-.close {
+.fa-xmark{
     position: absolute;
     top: 18px;
     left: 18px; 
     text-decoration: none;
     transition: var(--transition-fast);
-}
-
-.fa-xmark{
     font-size: var(--fs-h2);
     padding: 8px 10px;
     border-radius: 8px;
@@ -58,7 +55,7 @@ body {
 }
 
 .fa-xmark:hover {
-    background: rgb(105, 19, 19);
+    color: rgb(105, 19, 19);
     transform: scale(1.04);
 }
 
@@ -70,7 +67,7 @@ body {
     align-items: center;
     justify-content: center;
     max-width: 900px;
-    width: 100%;
+    width: 100%;position:absolute;
 }
 
 .form-container {
@@ -78,25 +75,27 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    max-width: 560px;
+    max-width:560px;
     background: var(--bg);
     padding: 40px;
     border-radius: 14px;
     box-shadow: var(--shadow);
+    
 }
 
 .logo {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+  align-items: center;
+  position: relative;
+  right: 36px;
 }
 
 .logo-circles {
-    width: 44px;
-    height: 44px;
+    width: 54px;
+    height: 54px;
     display: block;
-    flex-shrink: 0;
+    position: relative;
+    left:38px
 }
 
 .logo-circles .circle-left {
@@ -110,14 +109,14 @@ body {
 }
 
 .logo h1 {
+    z-index:1;
     margin: 0;
     font-family: 'Sora', sans-serif;
     font-size: 1.1rem;
     color: var(--text-main);
 }
-
 h2 {
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h3);
     margin: 0 0 8px 0;
     font-family: 'Sora', sans-serif;
 }
@@ -201,18 +200,3 @@ form {
     height: 400px;
 }
 
-@media (max-width: 720px) {
-  .container {
-    padding: 24px;
-    max-width: 100%;
-  }
-  
-  h2 {
-    font-size: var(--fs-h3);
-  }
-  
-  .logo-circles {
-    width: 40px;
-    height: 40px;
-  }
-}
