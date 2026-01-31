@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — Tutools</title>
+    <link rel="stylesheet" href="signup.css">
+     <script
+      src="https://kit.fontawesome.com/5be89bdbaf.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <section id="signup" class="signup">
+        <a href="index.html" class="close"><i class="fa-solid fa-xmark"></i></a>
+        <div class="container">
+            <div class="form-container">
+                <div class="logo">
+                    <svg class="logo-circles" viewBox="0 0 120 120" width="44" height="44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle class="circle-left" cx="42" cy="60" r="36" />
+                        <circle class="circle-right" cx="78" cy="60" r="36" />
+                    </svg>
+                    <h1>Tutools</h1>
+                </div>
+                <h2>Create your account</h2>
+            
+            
+                <form action="#" method="post" novalidate>
+                    <input class="form-input" type="text" name="name" placeholder="Full name" required />
+                    <input class="form-input" type="email" name="email" placeholder="Email address" required />
+                    <input class="form-input" type="password" name="password" placeholder="Password" required />
+                    <label for="show-password"><input type="checkbox" name="show-password" id="show-password"> Show password</label>
+                    <div class="button">
+                        <button class="submit-btn" type="submit">Sign up</button>
+                    </div>
+                </form>
+            
+                <p class="meta">Already have an account? <a href="login.html" style="color:var(--primary);font-weight:600;text-decoration:none">Log in</a></p>
+                <p class="terms">By signing up you agree to our terms.</p>
+            </div>
+            <div class="image">
+                <img src="/images/mobile-login-animate.svg" alt="Sign up illustration" />
+            </div>
+        </div>
+    </section>
+</body>
+</html>
