@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Assistant Dashboard</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --primary: #5b6cff;
+      --secondary: #8b5cf6;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .nav button {
+      background: transparent;
+      border: none;
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .nav button.active,
+    .nav button:hover {
+      background: var(--bg);
+      color: var(--primary);
+    }
+
+    /* Main */
+    .main {
+      padding: 1.5rem;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 1.5rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar h1 {
+      font-size: 1.4rem;
+    }
+
+    .user {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Dashboard cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    /* Chat section */
+    .chat {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-rows: 1fr auto;
+      overflow: hidden;
+    }
+
+    .messages {
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .message {
+      max-width: 70%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background: var(--primary);
+      color: white;
+    }
+
+    .message.ai {
+      align-self: flex-start;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .input {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .input input {
+      flex: 1;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      outline: none;
+    }
+
+    .input button {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--secondary);
+      color: white;
+      cursor: pointer;
+    }
+
+    .input button:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">AI Assistant</div>
+    <nav class="nav">
+      <button class="active">Dashboard</button>
+      <button>Chat</button>
+      <button>History</button>
+      <button>Settings</button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1>Dashboard</h1>
+      <div class="user">Welcome, User</div>
+    </div>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Total Conversations</h3>
+        <p id="conversations">12</p>
+      </div>
+      <div class="card">
+        <h3>Messages Sent</h3>
+        <p id="messagesSent">48</p>
+      </div>
+      <div class="card">
+        <h3>AI Accuracy</h3>
+        <p>92%</p>
+      </div>
+    </section>
+
+    <section class="chat">
+      <div class="messages" id="messages">
+        <div class="message ai">Hello! How can I help you today?</div>
+      </div>
+      <div class="input">
+        <input type="text" id="userInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let messageCount = 48;
+
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const messages = document.getElementById('messages');
+
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user';
+      userMsg.textContent = text;
+      messages.appendChild(userMsg);
+
+      input.value = '';
+
+      messageCount++;
+      document.getElementById('messagesSent').textContent = messageCount;
+
+      setTimeout(() => {
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'message ai';
+        aiMsg.textContent = 'This is a demo response from the AI assistant.';
+        messages.appendChild(aiMsg);
+        messages.scrollTop = messages.scrollHeight;
+      }, 600);
+
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
