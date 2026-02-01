@@ -27,67 +27,61 @@
   box-sizing: border-box;
 }
 @media (max-width: 1024px) {
-   h1{
+  h1 {
     font-size: 2.8rem;
-}
-h2{
-    font-size: 2.2rem; 
-}
-h3{
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+  h3 {
     font-size: 1.8rem;
-}
+  }
   .content {
     margin: 0 40px;
     display: flex;
     flex-direction: row;
   }
-  .signup{
+  .signup {
     margin-bottom: 0;
   }
-.services,.contact{
+  .services {
     margin: 40px 0;
     padding: 20px;
   }
-.contact{
-    display:block;
-    gap:20px;
-    /* padding:0; */
+  .contact {
+    gap: 20px;
+    padding: 10px;
+  }
 }
-
-}
-
 
 @media (max-width: 768px) {
-    body {
-        font-size: var(--fs-mobilebody);
-    }
-      h1{
+  body {
+    font-size: var(--fs-mobilebody);
+  }
+  h1 {
     font-size: var(--fs-mobileh1);
   }
-    h2{
-        font-size: var(--fs-mobileh2);
-    }
-    h3{
-        font-size: var(--fs-mobileh3);
-    }
-    p{
-        font-size: var(--fs-body);
-    }
-.logo-badge{
-    right:36px;
-}
-.logo p {
+  h2 {
+    font-size: var(--fs-mobileh2);
+  }
+  h3 {
+    font-size: var(--fs-mobileh3);
+  }
+  p {
+    font-size: var(--fs-body);
+  }
+  .logo-badge {
+    right: 36px;
+  }
+  .logo p {
     font-size: var(--fs-mobileh1);
   }
-
   .hamburger {
     display: block;
   }
-
   nav {
-display: none;;
+    display: none;
   }
-
   nav.active {
     display: flex;
     flex-direction: column;
@@ -101,42 +95,48 @@ display: none;;
     border-radius: 8px;
     box-shadow: var(--shadow);
   }
+  .account a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
   .content {
     margin: 0 20px;
     display: flex;
     flex-direction: column-reverse;
   }
-  .image img{
-    width:300px;
-    height:300px;
+  .image img {
+    width: 300px;
+    height: 300px;
   }
 
-  .signup{
+  .signup {
     margin-bottom: 20px;
   }
-
-
-    .horizontal-rule{
-        margin-top:20px;
-    }
-    .services, .footer{
-        margin:40px 0;
-        padding:20px;
-    }
-.service-container{
+  .waves {
+    display: none;
+  }
+  .horizontal-rule {
+    margin-top: 20px;
+  }
+  .services,
+  .footer {
+    margin: 40px 0 0;
+    padding: 20px;
+  }
+  .service-container {
     /* margin: 40px 0;
     padding: 20px; */
     grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
-.contact{
-    display:flex;
-    gap:20px;
-    margin:0px 10px;
-    padding:20px;
+  .contact {
+    display: flex;
+    gap: 20px;
+    margin: 0px 10px;
+    padding: 20px;
     justify-content: space-evenly;
-}
+  }
 
-    .credits p{
-        font-size: 0.6rem;
-    }
+  .credits p {
+    font-size: 0.6rem;
+  }
 }

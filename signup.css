@@ -183,7 +183,17 @@ form {
   color: var(--text-muted);
   font-size: 0.95rem;
 }
-
+.meta a{
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+.meta a:hover{
+    text-decoration: underline;
+}
+.meta a:visited{
+    color: var(--text-muted);
+}
 .terms {
   margin: 8px 0 0 0;
   color: var(--text-muted);
